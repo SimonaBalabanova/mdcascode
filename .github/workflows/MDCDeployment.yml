@@ -22,13 +22,6 @@ jobs:
     # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
        creds: ${{ secrets.AZURECRED }}
        enable-AzPSSession: true   
-    - name: Updates a security contact for a subscription to receive alerting
-      uses: Azure/powershell@v1
-      with:
-      # Specify the Az PowerShell script here.
-       inlineScript: 
-        Set-AzSecurityContact -Name "default1" -Email "seanwasonga@live.com" -Phone "214275-4038" -AlertAdmin -NotifyOnAlert
-       azPSVersion: latest  
     - name: Enable Defender for Servers plans
       uses: Azure/powershell@v1
       with:
