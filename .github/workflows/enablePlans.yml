@@ -21,18 +21,7 @@ jobs:
         uses: Azure/login@v1.4.6
         with:
           # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
-          creds: {
-  "clientId": "d91a4bc0-1945-47a7-b6b9-0e22efb6c499",
-  "clientSecret": "fYm8Q~_YFjVJhmTz36tH7oDcFpDEl1WCK59UmaiG",
-  "subscriptionId": "0f53b943-3fcd-4183-93d0-3ae290c48233",
-  "tenantId": "a0378c20-d53d-404b-b995-33369b07ade3",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
+          creds: ${{ secrets.azureCred}}
       - run: |
           az webapp list --query "[?state=='Running']"
           
